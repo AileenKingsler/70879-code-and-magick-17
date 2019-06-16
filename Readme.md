@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Алёна Царегородцева](https://up.htmlacademy.ru/javascript/17/user/70879).
-* Наставник: `Неизвестно`.
+* Наставник: [Виталий Кудла](https://htmlacademy.ru/profile/vkudla).
 
 ---
 
