@@ -62,14 +62,14 @@ userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
 // Открытие/закрытие окна настройки персонажа
 
-var ESC_KEYCODE = 27;
-var ENTER_KEYCODE = 13;
+var ESC_KEY_CODE = 27;
+var ENTER_KEY_CODE = 13;
 var userDialogOpen = document.querySelector('.setup-open');
 var userDialogClose = userDialog.querySelector('.setup-close');
 var userName = userDialog.querySelector('.setup-user-name');
 
 var onPopupEscPress = function (evt) {
-  if (evt.keyCode === ESC_KEYCODE && document.activeElement !== userName) {
+  if (evt.keyCode === ESC_KEY_CODE && document.activeElement !== userName) {
     closePopup();
   }
 };
@@ -89,7 +89,7 @@ userDialogOpen.addEventListener('click', function () {
 });
 
 userDialogOpen.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
+  if (evt.keyCode === ENTER_KEY_CODE) {
     openPopup();
   }
 });
@@ -99,7 +99,7 @@ userDialogClose.addEventListener('click', function () {
 });
 
 userDialogClose.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
+  if (evt.keyCode === ENTER_KEY_CODE) {
     closePopup();
   }
 });
@@ -117,9 +117,11 @@ var wizardFireball = userDialog.querySelector('.setup-fireball-wrap');
 var fireballColorInput = userDialog.querySelector('[name="fireball-color"]');
 
 var getNextValue = function (currentValue, properties) {
+  var index;
   for (var i = 0; i < properties.length; i++) {
     if (currentValue === properties[i]) {
-      var index = i;
+      index = i;
+      break;
     }
   }
   if (index === properties.length - 1) {
