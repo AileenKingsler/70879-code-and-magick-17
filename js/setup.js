@@ -1,6 +1,10 @@
 'use strict';
 
 var userDialog = document.querySelector('.setup');
+var initialCoords = {
+  x: getComputedStyle(userDialog).left,
+  y: getComputedStyle(userDialog).top
+};
 
 var wizardsProperties = {
   firstnames: ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'],
@@ -81,6 +85,8 @@ var openPopup = function () {
 
 var closePopup = function () {
   userDialog.classList.add('hidden');
+  userDialog.style.top = initialCoords.y;
+  userDialog.style.left = initialCoords.x;
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
