@@ -25,4 +25,12 @@
     fireballColorInput.value = wizardFireball.style.background = window.common.getNextValue(fireballColorInput.value, window.common.wizardsProperties.fireballColors);
   });
 
+
+  var form = document.querySelector('.setup-wizard-form');
+
+  form.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+    window.backend.save(new FormData(form), window.dialogDisplay.closePopup, window.backend.error);
+  });
+
 })();

@@ -15,20 +15,13 @@
 
   var onPopupEscPress = function (evt) {
     if (window.common.isEscEvent(evt) && document.activeElement !== userName) {
-      closePopup();
+      window.dialogDisplay.closePopup();
     }
   };
 
   var openPopup = function () {
     userDialog.classList.remove('hidden');
     document.addEventListener('keydown', onPopupEscPress);
-  };
-
-  var closePopup = function () {
-    userDialog.classList.add('hidden');
-    userDialog.style.top = initialCoords.y;
-    userDialog.style.left = initialCoords.x;
-    document.removeEventListener('keydown', onPopupEscPress);
   };
 
   userDialogOpen.addEventListener('click', function () {
@@ -42,13 +35,22 @@
   });
 
   userDialogClose.addEventListener('click', function () {
-    closePopup();
+    window.dialogDisplay.closePopup();
   });
 
   userDialogClose.addEventListener('keydown', function (evt) {
     if (window.common.isEnterEvent(evt)) {
-      closePopup();
+      window.dialogDisplay.closePopup();
     }
   });
+
+  window.dialogDisplay = {
+    closePopup: function () {
+      userDialog.classList.add('hidden');
+      userDialog.style.top = initialCoords.y;
+      userDialog.style.left = initialCoords.x;
+      document.removeEventListener('keydown', onPopupEscPress);
+    }
+  };
 
 })();
